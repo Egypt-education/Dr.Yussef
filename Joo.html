@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتيجة الطالب</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #2c5aa0;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #2c5aa0;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .header h2 {
+            color: #d32f2f;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .header h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .dashed-line {
+            border-top: 2px dashed #2c5aa0;
+            margin: 25px 0;
+        }
+        
+        .officials {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .officials div {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+        
+        .student-info {
+            background-color: #f0f7ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-right: 5px solid #2c5aa0;
+        }
+        
+        .student-info div {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .student-info span {
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 16px;
+        }
+        
+        .results-table th {
+            background-color: #2c5aa0;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .results-table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .results-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .results-table tr:hover {
+            background-color: #f0f7ff;
+        }
+        
+        .total-row {
+            font-weight: bold;
+            background-color: #e8f4ff !important;
+            font-size: 18px;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            background-color: #2c5aa0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1e3d6f;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .website-note {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .student-id {
+            direction: ltr;
+            text-align: center;
+            font-family: monospace;
+            font-size: 18px;
+            margin: 10px 0;
+            color: #2c5aa0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="website-note">
+            scribit.aooale.com/macrc
+        </div>
+        
+        <div class="student-id">
+            31008152705858
+        </div>
+        
+        <div class="header">
+            <h1>مديرية التربية والتعليم بمحافظة قنا</h1>
+            <h2>إدارة الألمنيوم التعليمية</h2>
+            <h3>مدرسة الدكتور يوسف إسماعيل الثانوية</h3>
+        </div>
+        
+        <div class="dashed-line"></div>
+        
+        <div class="officials">
+            <div><span>وكيل الوزارة</span><span>/طارق محمد سعد الدين</span></div>
+            <div><span>مدير الإدارة</span><span>/عفت محمد وزيري</span></div>
+            <div><span>مدير التعليم الثانوي</span><span>/عبدالله أحمد محمد</span></div>
+            <div><span>مدير المدرسة</span><span>/أسماء عبدالعاطي</span></div>
+            <div><span>رئيس الكنترول</span><span>/هناء عبدالسلام</span></div>
+        </div>
+        
+        <div class="student-info">
+            <div><span>الاسم:</span> يوسف عبد الحميد شحات عبد الله</div>
+            <div><span>الحالة:</span> الصف الأول الثانوي</div>
+        </div>
+        
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>المادة</th>
+                    <th>الدرجة</th>
+                    <th>الدرجة الكاملة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>اللغة العربية</td>
+                    <td>69</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>اللغة الإنجليزية</td>
+                    <td>76</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>الرياضيات</td>
+                    <td>68</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>العلوم المتكاملة</td>
+                    <td>75</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>التاريخ</td>
+                    <td>90</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>الفلسفة</td>
+                    <td>95</td>
+                    <td>100</td>
+                </tr>
+                <tr class="total-row">
+                    <td>المجموع الكلي</td>
+                    <td>473</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>التربية الدينية</td>
+                    <td>58</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>اللغة الأجنبية الثانية</td>
+                    <td>65.9</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>البرمجة والذكاء الاصطناعي</td>
+                    <td>86</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>الانشطة</td>
+                    <td>17</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>التربية الرياضية</td>
+                    <td>18</td>
+                    <td>20</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="button-container">
+            <button class="btn" onclick="window.location.href='search.html'">بحث جديد</button>
+        </div>
+        
+        <div class="footer">
+            <p>جميع الحقوق محفوظة © 2023 مدرسة الدكتور يوسف إسماعيل الثانوية</p>
+        </div>
+    </div>
+</body>
+</html>
