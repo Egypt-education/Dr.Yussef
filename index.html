@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استعلام النتائج - مدرسة الدكتور يوسف إسماعيل الثانوية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e8f4f8;
+            color: #333;
+            line-height: 1.6;
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .main-container {
+            width: 100%;
+            max-width: 850px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 3px solid #1a5276;
+        }
+        
+        .header-bar {
+            background: linear-gradient(to right, #1a5276, #2e86c1);
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            border-bottom: 3px solid #154360;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .welcome-message {
+            background: linear-gradient(to right, #f0f8ff, #e6f2ff);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-right: 5px solid #3498db;
+            text-align: center;
+            font-size: 20px;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+        
+        .welcome-message strong {
+            color: #1a5276;
+        }
+        
+        .title-section {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #3498db;
+        }
+        
+        .main-title {
+            font-size: 26px;
+            font-weight: bold;
+            color: #1a5276;
+            margin-bottom: 8px;
+        }
+        
+        .sub-title {
+            font-size: 21px;
+            font-weight: bold;
+            color: #2e86c1;
+            margin-bottom: 5px;
+        }
+        
+        .school-name {
+            font-size: 23px;
+            font-weight: bold;
+            color: #1a5276;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ebf5fb;
+            border-radius: 8px;
+            border-right: 4px solid #3498db;
+        }
+        
+        .separator {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #3498db, transparent);
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .separator::before {
+            content: "---";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 0 15px;
+            color: #3498db;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .officials-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 1px solid #d6eaf8;
+        }
+        
+        .official-row {
+            margin-bottom: 12px;
+            font-size: 19px;
+            text-align: right;
+            padding-right: 15px;
+            color: #2c3e50;
+        }
+        
+        .official-title {
+            font-weight: bold;
+            color: #1a5276;
+            display: inline-block;
+            min-width: 150px;
+        }
+        
+        .form-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid #d6eaf8;
+        }
+        
+        .form-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1a5276;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #3498db;
+            text-align: right;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            text-align: right;
+        }
+        
+        .grade-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .grade-option {
+            flex: 1;
+            min-width: 200px;
+            background-color: white;
+            border: 2px solid #d6eaf8;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #2c3e50;
+        }
+        
+        .grade-option:hover {
+            border-color: #3498db;
+            background-color: #e6f2ff;
+            transform: translateY(-3px);
+        }
+        
+        .grade-option.selected {
+            border-color: #2ecc71;
+            background-color: #d5f4e6;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .input-field {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #d6eaf8;
+            border-radius: 8px;
+            text-align: right;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .buttons-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+            border: none;
+            min-width: 150px;
+        }
+        
+        .btn-back {
+            background: linear-gradient(to right, #95a5a6, #bdc3c7);
+            color: white;
+        }
+        
+        .btn-back:hover {
+            background: linear-gradient(to right, #7f8c8d, #95a5a6);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(127, 140, 141, 0.3);
+        }
+        
+        .btn-submit {
+            background: linear-gradient(to right, #27ae60, #2ecc71);
+            color: white;
+        }
+        
+        .btn-submit:hover {
+            background: linear-gradient(to right, #219653, #27ae60);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header-bar">
+            نظام استعلام نتائج الطلاب
+        </div>
+        
+        <div class="content">
+            <div class="welcome-message">
+                <strong>السادة أولياء الأمور الكرام .. أبنائنا الطلاب ...</strong><br>
+                مرحبا بكم في موقع نتائج مدرسة الدكتور يوسف إسماعيل الثانوية
+            </div>
+            
+            <div class="title-section">
+                <div class="main-title">مديرية التربية والتعليم بمحافظة قنا</div>
+                <div class="sub-title">إدارة الألمنيوم التعليمية</div>
+                <div class="school-name">مدرسة الدكتور يوسف إسماعيل الثانوية</div>
+            </div>
+            
+            <div class="separator"></div>
+            
+            <div class="officials-section">
+                <div class="official-row">
+                    <span class="official-title">وكيل الوزارة:</span> /طارق محمد سعد الدين
+                </div>
+                <div class="official-row">
+                    <span class="official-title">مدير الإدارة:</span> /عفت محمد وزيري
+                </div>
+                <div class="official-row">
+                    <span class="official-title">مدير التعليم الثانوي:</span> /عبدالقهار أحمد محمد
+                </div>
+                <div class="official-row">
+                    <span class="official-title">مدير المدرسة:</span> /أسماء عبدالعاطي
+                </div>
+                <div class="official-row">
+                    <span class="official-title">رئيس الكتروني:</span> /هناء عبدالسلام
+                </div>
+            </div>
+            
+            <div class="separator"></div>
+            
+            <div class="form-section">
+                <div class="form-title">بيانات الاستعلام</div>
+                
+                <div class="form-group">
+                    <label class="form-label">اختر الصف الدراسي:</label>
+                    <div class="grade-options">
+                        <div class="grade-option selected" onclick="selectGrade(1)">الصف الأول الثانوي</div>
+                        <div class="grade-option" onclick="selectGrade(2)">الصف الثاني الثانوي</div>
+                        <div class="grade-option" onclick="selectGrade(3)">الصف الثالث الثانوي</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">أدخل الرقم القومي:</label>
+                    <input type="text" class="input-field" id="nationalId" placeholder="أدخل الرقم القومي المكون من 14 رقم" maxlength="14">
+                </div>
+            </div>
+            
+            <div class="buttons-group">
+                <button class="btn btn-back" onclick="window.location.href='main.html'">رجوع</button>
+                <button class="btn btn-submit" onclick="checkResult()">عرض النتيجة</button>
+            </div>
+            
+            <div class="footer">
+                <p>© 2023 جميع الحقوق محفوظة - مدرسة الدكتور يوسف إسماعيل الثانوية</p>
+                <p>للاستفسار: هاتف 123456789 - البريد الإلكتروني: info@school.edu.eg</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedGrade = 1;
+        
+        function selectGrade(grade) {
+            selectedGrade = grade;
+            
+            // إزالة التحديد من جميع الخيارات
+            const options = document.querySelectorAll('.grade-option');
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // إضافة التحديد للخيار المحدد
+            options[grade - 1].classList.add('selected');
+        }
+        
+        function checkResult() {
+            const nationalId = document.getElementById('nationalId').value;
+            
+            // التحقق من أن الرقم القومي مكون من 14 رقمًا
+            if (nationalId.length !== 14 || !/^\d+$/.test(nationalId)) {
+                alert("الرجاء إدخال رقم قومي صحيح مكون من 14 رقم");
+                return;
+            }
+            
+            // توجيه المستخدم حسب الرقم القومي
+            if (nationalId === "31008232701799") {
+                window.location.href = "Moataz.html";
+            } else if (nationalId === "31003242701213") {
+                window.location.href = "Younes.html";
+            } else if (nationalId === "31008152705858") {
+                window.location.href = "Joo.html";
+            } else if (nationalId === "31008102773579") {
+                window.location.href = "3omr.html";
+            } else {
+                alert("هذا الرقم القومي غير موجود في قاعدة البيانات");
+            }
+        }
+        
+        // السماح بإدخال الأرقام فقط
+        document.getElementById('nationalId').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^\d]/g, "");
+        });
+        
+        // السماح بالضغط على زر Enter لعرض النتيجة
+        document.getElementById('nationalId').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkResult();
+            }
+        });
+    </script>
+</body>
+</html>
